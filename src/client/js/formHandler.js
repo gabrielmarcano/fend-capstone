@@ -1,5 +1,3 @@
-import { json } from "body-parser"
-
 function handleSubmit(event) {
     event.preventDefault()
 

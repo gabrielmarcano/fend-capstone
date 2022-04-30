@@ -12,13 +12,25 @@ input {
     line-height: 16px;
     margin: 10px 0;
 
-    &#location, &#date {
+    &#destination, &#departure {
         border-radius: 4px;
         outline: none;
         border: 2px solid darkgrey;
     }
 
+    &#destination:focus-visible, &#departure:focus-visible {
+        outline-offset: 0px;
+        outline-color: black;
+        outline-style: auto;
+        outline-width: 1px;
+
+    }
+}
+
+button {
     &#search {
+        width: 250px;
+        margin: 10px auto;
         padding: 10px;
         text-align: center;
         font-weight: 600;
@@ -42,7 +54,6 @@ input {
         transform: translateY(4px);
       }
 }
-
 
 
 #results {

@@ -3,11 +3,6 @@ const express = require('express')
 const mockAPIResponse = require('./mockAPI.js')
 var bodyParser = require('body-parser')
 var cors = require('cors')
-const dotenv = require('dotenv');
-
-dotenv.config();
-var apiKey = process.env.API_KEY;
-
 
 const app = express()
 app.use(cors())
@@ -36,6 +31,13 @@ app.get('/test', function (req, res) {
     res.send(mockAPIResponse)
 })
 
-app.get('/request', function(req, res) {
-    res.send({url: `https://api.meaningcloud.com/sentiment-2.1&key=${apiKey}&lang=en&model=general`})
-})
+// GET Route To Return Endpoint Data
+app.get("/data", (request, response) => {
+    response.send(projectData);
+});
+
+// POST Route To Add Data to projectData
+app.post("/add", (request, response) => {
+    projectData = request.body;
+    console.log(projectData);
+});

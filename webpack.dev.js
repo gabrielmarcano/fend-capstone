@@ -2,6 +2,7 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebPackPlugin = require("html-webpack-plugin")
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
     resolve: {
@@ -13,7 +14,8 @@ module.exports = {
             "buffer": require.resolve("buffer/"),
             "assert": require.resolve("assert/"),
             "util": require.resolve("util/"),
-            "fs": false
+            "os": require.resolve("os-browserify/browser"),
+            "fs": false            
         } 
     },
     entry: './src/client/index.js',
@@ -52,6 +54,7 @@ module.exports = {
             // Automatically remove all unused webpack assets on rebuild
             cleanStaleWebpackAssets: true,
             protectWebpackAssets: false
-        })
+        }),
+        new Dotenv(),
     ]
 }

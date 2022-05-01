@@ -4,7 +4,7 @@ import { postData } from './js/postData'
 import { callGeoNames } from './js/getCoords'
 import { callWeatherBit } from './js/getWeather'
 import { callPixabay } from './js/getImages'
-import { updateUI } from './js/updateUI'
+import { updateUI } from './js/update'
 import { main } from './js/app'
 
 import './styles/resets.scss'

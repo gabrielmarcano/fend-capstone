@@ -39,18 +39,18 @@ button {
         cursor: pointer;
         outline: none;
         color: white;
-        background-color: #35bfa8;
+        background-color: #d9960a;
         border: none;
         border-radius: 10px;
         box-shadow: 0 9px #c8c8c8;
     }
 
     &#search:hover {
-        background-color: #067a67;
+        background-color: #a9770f;
     }
 
     &#search:active {
-        background-color: #067a67;
+        background-color: #a9770f;
         box-shadow: 0 5px #9b9a9a;
         transform: translateY(4px);
       }

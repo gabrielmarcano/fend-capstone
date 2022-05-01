@@ -6,6 +6,8 @@ async function callCurrentWeatherBit(lat, lon, key) {
     );
     
     try {
+        console.log('Weatherbit OK');
+        console.log(response);
         return response;
     } catch (error) {
         console.log("Error: ", error);

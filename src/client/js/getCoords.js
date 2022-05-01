@@ -5,6 +5,8 @@ async function callGeoNames(placename, key) {
     );
     
     try {
+        console.log('GeoNames OK');
+        console.log(response);
         return response;
     } catch (error) {
         console.log("Error: ", error);

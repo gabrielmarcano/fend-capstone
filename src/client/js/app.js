@@ -18,31 +18,41 @@ function main() {
     const departure = document.getElementById("departure").value;
 
     console.log(today);
-    console.log(departure.valueAsDate);
+    console.log(departure);
 
     // Data
-    var allData = {};
+    var allData = {
+        destination: undefined,
+        departure: undefined,
+        weather: undefined,
+        temperature: undefined,
+        image: undefined,
+    };
 
     // Main API call
     Client.callGeoNames(destination, GEONAMES_KEY)
-        .then( (geo) => {
+        .then(function (geo) {
+            
+            // document.getElementById("destination-box").innerHTML = `${geo.geonames[0].name}, ${geo.geonames[0].countryName}`
+            // document.getElementById("departure-box").innerHTML = `${departure}`
 
-            console.log('Geo OK')
-            document.getElementById("destination-box").innerHTML = `${geo.geonames[0].name}, ${geo.geonames[0].countryName}`
-            document.getElementById("departure-box").innerHTML = `${departure}`
+            allData.destination = `${geo.geonames[0].name}, ${geo.geonames[0].countryName}`;
+            allData.departure = `${departure}`;
 
-            if (Client.thisWeek(today, departure)) {
-                Client.callCurrentWeatherBit(geo.geonames[0].lat, geo.geonames[0].lng, WEATHERBIT_KEY)
-                    .then(function (weather) {
-                        console.log('Weather OK')
-                        console.log(weather);
-                    })
-            } else {
-                Client.callForecastWeatherBit(geo.geonames[0].lat, geo.geonames[0].lng, WEATHERBIT_KEY)
-                    .then(function (weather) {
-                        console.log(weather);
-                    })
-            }
+            Client.callWeatherBit(geo.geonames[0].lat, geo.geonames[0].lng, WEATHERBIT_KEY, today, departure)
+                .then(function (wbit) {
+                    allData.weather = wbit.data[0].weather.description;
+                    allData.temperature = wbit.data[0].temp;
+                })
+                .then(() => {
+                    Client.callPixabay(geo.geonames[0].name, PIXABAY_KEY)
+                        .then(function (pixabay) {
+                            allData.image = pixabay.hits[0].largeImageURL;
+                        })
+                        .then(() => {
+                            console.log(allData);
+                        })
+                })
         })
 }
 

@@ -5,6 +5,8 @@ async function callPixabay(placename, key) {
     );
     
     try {
+        console.log('Pixabay OK');
+        console.log(response);
         return response;
     } catch (error) {
         console.log("Error: ", error);

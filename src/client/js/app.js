@@ -44,10 +44,15 @@ function main() {
                         .then(() => {
                             console.log(allData);
                             
-                            Client.postData('/add', allData)
-                                .then(() => {
-                                    Client.updateUI();
-                                })
+                            // Use localStorage
+                            localStorage.setItem('trip', JSON.stringify(allData));
+
+                            Client.updateUI();
+
+                            // Client.postData('/add', allData)
+                            //     .then(() => {
+                            //         Client.updateUI();
+                            //     })
                             
                         })
                 })

@@ -1,9 +1,10 @@
 import { thisWeek } from './js/checkDate'
 import { getData } from './js/getData'
 import { postData } from './js/postData'
-import { callGeoNames } from './js/geoNames'
+import { callGeoNames } from './js/getCoords'
 import { callCurrentWeatherBit } from './js/currentWeather'
 import { callForecastWeatherBit } from './js/forecastWeather'
+import { callWeatherBit } from './js/getWeather'
 import { callPixabay } from './js/getImages'
 import { updateUI } from './js/updateUI'
 import { main } from './js/app'
@@ -24,6 +25,7 @@ export {
     callGeoNames,
     callCurrentWeatherBit,
     callForecastWeatherBit,
+    callWeatherBit,
     callPixabay,
     updateUI,
     main,

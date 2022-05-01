@@ -1,13 +1,9 @@
 function main() {
-    /* Global Variables */
 
     // Personal API keys for GeoNames API, Weatherbit API and Pixabay API using environment variables
     const GEONAMES_KEY = process.env.GEONAMES_KEY;
     const WEATHERBIT_KEY = process.env.WEATHERBIT_KEY;
     const PIXABAY_KEY = process.env.PIXABAY_KEY;
-    
-    // Get the Button element
-    const button = document.getElementById("search");
     
     // Create a new date instance dynamically with JS
     let d = new Date();
@@ -32,10 +28,6 @@ function main() {
     // Main API call
     Client.callGeoNames(destination, GEONAMES_KEY)
         .then(function (geo) {
-            
-            // document.getElementById("destination-box").innerHTML = `${geo.geonames[0].name}, ${geo.geonames[0].countryName}`
-            // document.getElementById("departure-box").innerHTML = `${departure}`
-
             allData.destination = `${geo.geonames[0].name}, ${geo.geonames[0].countryName}`;
             allData.departure = `${departure}`;
 
@@ -51,6 +43,12 @@ function main() {
                         })
                         .then(() => {
                             console.log(allData);
+                            
+                            Client.postData('/add', allData)
+                                .then(() => {
+                                    Client.updateUI();
+                                })
+                            
                         })
                 })
         })

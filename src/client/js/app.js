@@ -28,31 +28,35 @@ function main() {
     // Main API call
     Client.callGeoNames(destination, GEONAMES_KEY)
         .then(function (geo) {
+
+            // Save the destination and departure data
             allData.destination = `${geo.geonames[0].name}, ${geo.geonames[0].countryName}`;
             allData.departure = `${departure}`;
 
             Client.callWeatherBit(geo.geonames[0].lat, geo.geonames[0].lng, WEATHERBIT_KEY, today, departure)
                 .then(function (wbit) {
+
+                    // Save the weather and temperature data 
                     allData.weather = wbit.data[0].weather.description;
                     allData.temperature = wbit.data[0].temp;
                 })
                 .then(() => {
                     Client.callPixabay(geo.geonames[0].name, PIXABAY_KEY)
                         .then(function (pixabay) {
+
+                            // Save the destination image data
                             allData.image = pixabay.hits[0].largeImageURL;
                         })
                         .then(() => {
                             console.log(allData);
-                            
-                            // Use localStorage
-                            localStorage.setItem('trip', JSON.stringify(allData));
 
-                            Client.updateUI();
+                            // Post the data to the server
+                            Client.postData('/add', allData)
+                                .then(() => {
 
-                            // Client.postData('/add', allData)
-                            //     .then(() => {
-                            //         Client.updateUI();
-                            //     })
+                                    // Update the UI with the new data
+                                    Client.updateUI();
+                                })
                             
                         })
                 })

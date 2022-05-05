@@ -2,7 +2,7 @@
 async function postData(url = "", data = {}) {
 
     // Use localStorage
-    localStorage.setItem('trip', JSON.stringify(data));
+    // localStorage.setItem('trip', JSON.stringify(data));
 
     // Save data to server
     const response = await fetch(url, {

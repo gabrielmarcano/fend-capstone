@@ -9,6 +9,18 @@ function main() {
     const destination = document.getElementById("destination").value;
     const departure = document.getElementById("departure").valueAsDate;
 
+    // Check if the text input is not empty
+    if (!destination) {
+        alert('Enter a location');
+        return
+    }
+
+    // Check if the date input is not empty
+    if (!departure) {
+        alert('Enter a date for departure');
+        return
+    }
+
     // Data
     var allData = {
         destination: undefined,
@@ -40,6 +52,10 @@ function main() {
                             max: wbit.data[0].max_temp
                         }
                     }
+                }, reason => {
+                    // WeatherBit failed
+                    alert('WeatherBit API Failed');
+                    console.error('WeatherBit API: ', reason);
                 })
                 .then(() => {
                     Client.callPixabay(geo.geonames[0].name, PIXABAY_KEY)
@@ -47,6 +63,10 @@ function main() {
 
                             // Save the destination image data
                             allData.image = pixabay.hits[0].largeImageURL;
+                        }, reason => {
+                            // Pixabay failed
+                            alert('Pixabay API Failed');
+                            console.error('Pixabay API: ', reason);
                         })
                         .then(() => {
                             console.log(allData);
@@ -60,6 +80,10 @@ function main() {
                                 })
                         })
                 })
+        }, reason => {
+            // GeoNames failed
+            alert('GeoNames API Failed');
+            console.error('GeoNames API: ', reason);
         })
 }
 

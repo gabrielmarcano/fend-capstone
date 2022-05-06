@@ -31,7 +31,15 @@ function main() {
 
                     // Save the weather and temperature data 
                     allData.weather = wbit.data[0].weather.description;
-                    allData.temperature = wbit.data[0].temp;
+
+                    if (Client.thisWeek(departure)) {
+                        allData.temperature = wbit.data[0].temp;
+                    } else {
+                        allData.temperature = {
+                            min: wbit.data[0].min_temp,
+                            max: wbit.data[0].max_temp
+                        }
+                    }
                 })
                 .then(() => {
                     Client.callPixabay(geo.geonames[0].name, PIXABAY_KEY)

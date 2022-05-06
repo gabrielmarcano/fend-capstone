@@ -29,7 +29,11 @@ async function updateUI() {
         weather.innerText = `Weather: ${data.weather}`;
 
         // Fill the temperature data element
-        temperature.innerText = `Temperature: ${data.temperature}`;
+        if (Client.thisWeek(departure)) {
+            temperature.innerText = `Temperature: ${data.temperature}`;
+        } else {
+            temperature.innerText = `Min Temperature: ${data.temperature.min} \n Max Temperature: ${data.temperature.max}`;
+        }
 
         // Fill the image data element
         let image = document.createElement('img');

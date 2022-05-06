@@ -41,4 +41,5 @@ app.get("/data", (request, response) => {
 app.post("/add", (request, response) => {
     projectData = request.body;
     console.log(projectData);
+    response.send({"success":"true"});
 });

@@ -20,16 +20,16 @@ async function updateUI() {
         temperature = document.createElement('div');
 
         // Fill the destination data element
-        destination.innerText = data.destination;
+        destination.innerText = `Destination: ${data.destination}`;
 
         // Fill the departure data element
-        departure.innerText = data.departure;
+        departure.innerText = `Departure day: ${data.departure}`;
 
         // Fill the weather data element
-        weather.innerText = data.weather;
+        weather.innerText = `Weather: ${data.weather}`;
 
         // Fill the temperature data element
-        temperature.innerText = data.temperature;
+        temperature.innerText = `Temperature: ${data.temperature}`;
 
         // Fill the image data element
         let image = document.createElement('img');

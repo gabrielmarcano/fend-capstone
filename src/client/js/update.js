@@ -29,7 +29,7 @@ async function updateUI() {
         weather.innerText = `Weather: ${data.weather}`;
 
         // Fill the temperature data element
-        if (Client.thisWeek(departure)) {
+        if (Client.thisWeek(data.departure)) {
             temperature.innerText = `Temperature: ${data.temperature}`;
         } else {
             temperature.innerText = `Min Temperature: ${data.temperature.min} \n Max Temperature: ${data.temperature.max}`;

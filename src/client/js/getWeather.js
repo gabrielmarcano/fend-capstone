@@ -1,7 +1,7 @@
 // WeatherBit API action function
-async function callWeatherBit(lat, lon, key, today, date) {
+async function callWeatherBit(lat, lon, key, date) {
 
-    if (Client.thisWeek(today, date)) {
+    if (Client.thisWeek(date)) {
         console.log('The departure is within a week');
         var response = await Client.getData(
             `https://api.weatherbit.io/v2.0/current?key=${key}&lat=${Number.parseFloat(lat).toFixed(3)}&lon=${Number.parseFloat(lon).toFixed(3)}`

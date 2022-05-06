@@ -5,15 +5,10 @@ function main() {
     const WEATHERBIT_KEY = process.env.WEATHERBIT_KEY;
     const PIXABAY_KEY = process.env.PIXABAY_KEY;
     
-    // Create a new date instance dynamically with JS
-    let d = new Date();
-    let today = d.getMonth()+1 + "/" + d.getDate() + "/" + d.getFullYear();
-    
     // Get the input values
     const destination = document.getElementById("destination").value;
     const departure = document.getElementById("departure").value;
 
-    console.log(today);
     console.log(departure);
     console.log(new Date(departure));
 
@@ -34,7 +29,7 @@ function main() {
             allData.destination = `${geo.geonames[0].name}, ${geo.geonames[0].countryName}`;
             allData.departure = `${departure}`;
 
-            Client.callWeatherBit(geo.geonames[0].lat, geo.geonames[0].lng, WEATHERBIT_KEY, today, departure)
+            Client.callWeatherBit(geo.geonames[0].lat, geo.geonames[0].lng, WEATHERBIT_KEY, departure)
                 .then(wbit => {
 
                     // Save the weather and temperature data 

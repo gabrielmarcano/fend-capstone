@@ -1,4 +1,4 @@
-# Evaluate a News Article with Natural Language Processing Project
+# The Travel App Project
 
 ## Table of Contents
 
@@ -8,11 +8,11 @@
 
 ## Description
 
-This is my personal project for the Udacity Frontend Web Development Nanodegree Program.
+This is my personal capstone project for the Udacity Frontend Web Development Nanodegree Program.
 
-The app uses the MeaningCloud API to use Natural Language Processing in whatever blog you enter in the input, and it lets you know if the message is agreeing or disagreeing.
+The app uses the GeoNames API, Weatherbit API and Pixabay API to use fetch information about a the desired city to visit. Then it displays the output with the weather of the place, a related picture, and the information of the trip.
 
-The project consist in working with asynchronous code in order to fetch data from the MeaningCloud API and use the NLP to evaluate sentences.
+The project consist in working with asynchronous code in order to fetch data from many APIs and set a travel plan.
 
 ## How-to run
 
@@ -28,4 +28,4 @@ Use `npm run start` to start the Express server
 
 ## Dependencies
 
-The project uses Node.JS (16.13) to create a Express server for the app. It also uses the following modules: Express, Webpack, Jest.
+The project uses Node.JS (16.13) to create a Express server for the app. It also uses the following modules: Express, Webpack, Jest, Babel, DotEnv.

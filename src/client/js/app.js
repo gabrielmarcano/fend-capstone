@@ -7,10 +7,7 @@ function main() {
     
     // Get the input values
     const destination = document.getElementById("destination").value;
-    const departure = document.getElementById("departure").value;
-
-    console.log(departure);
-    console.log(new Date(departure));
+    const departure = document.getElementById("departure").valueAsDate;
 
     // Data
     var allData = {

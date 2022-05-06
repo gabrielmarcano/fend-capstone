@@ -4,9 +4,6 @@ async function updateUI() {
     // Get the data from the server
     let data = await Client.getData('/data');
 
-    // Get data from localStorage
-    // const localData = JSON.parse(localStorage.getItem('trip'));
-
     try {
 
         // Get the results wrapper element
@@ -17,7 +14,10 @@ async function updateUI() {
 
         // Create div elements
         let destination, departure, weather, temperature;
-        destination = departure = weather = temperature = document.createElement('div');
+        destination = document.createElement('div');
+        departure = document.createElement('div');
+        weather = document.createElement('div');
+        temperature = document.createElement('div');
 
         // Fill the destination data element
         destination.innerText = data.destination;
@@ -38,11 +38,7 @@ async function updateUI() {
         image.setAttribute('width', '300');
         
         // Append to the document fragment
-        fragment.appendChild(destination);
-        fragment.appendChild(departure);
-        fragment.appendChild(weather);
-        fragment.appendChild(temperature);
-        fragment.appendChild(image);
+        fragment.append(destination, departure, weather, temperature, image);
 
         // Append the document fragment to the UI
         results.appendChild(fragment);
@@ -50,9 +46,6 @@ async function updateUI() {
     } catch(error) {
         console.log("Error: ", error);
     }
-
-
-    
 }
 
 export { updateUI }

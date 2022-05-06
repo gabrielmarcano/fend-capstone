@@ -58,7 +58,6 @@ function main() {
                                     // Update the UI with the new data
                                     Client.updateUI();
                                 })
-                            
                         })
                 })
         })

@@ -5,11 +5,10 @@ async function callGeoNames(placename, key) {
     );
     
     try {
-        console.log('GeoNames OK');
-        console.log(response);
+        console.info('GeoNames API Resolved');
         return response;
     } catch (error) {
-        console.log("Error: ", error);
+        console.error(error);
     }
 }
 

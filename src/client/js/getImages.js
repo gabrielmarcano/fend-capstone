@@ -5,11 +5,10 @@ async function callPixabay(placename, key) {
     );
     
     try {
-        console.log('Pixabay OK');
-        console.log(response);
+        console.info('Pixabay API Resolved');
         return response;
     } catch (error) {
-        console.log("Error: ", error);
+        console.error(error);
     }
 }
 

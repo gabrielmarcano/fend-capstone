@@ -12,11 +12,10 @@ async function callWeatherBit(lat, lon, key, departure) {
     }
     
     try {
-        console.log('Weatherbit OK');
-        console.log(response);
+        console.info('Weatherbit API Resolved');
         return response;
     } catch (error) {
-        console.log("Error: ", error);
+        console.error(error);
     }
 
 }

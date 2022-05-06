@@ -6,6 +6,7 @@ import { callGeoNames } from './js/getCoords'
 import { callWeatherBit } from './js/getWeather'
 import { callPixabay } from './js/getImages'
 import { updateUI } from './js/update'
+import { removeTrip } from './js/remove'
 import { main } from './js/app'
 
 import './styles/resets.scss'
@@ -17,8 +18,11 @@ import './styles/header.scss'
 // Update default input date
 document.addEventListener("DOMContentLoaded", updateDateInput);
 
-// Add event listener to button
+// Add event listener to search button
 document.getElementById("search").addEventListener("click", main);
+
+// Add event listener to remove button
+document.getElementById("remove").addEventListener("click", removeTrip);
 
 export {
     thisWeek,
@@ -29,5 +33,6 @@ export {
     callWeatherBit,
     callPixabay,
     updateUI,
+    removeTrip,
     main,
 }

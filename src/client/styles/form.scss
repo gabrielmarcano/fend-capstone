@@ -28,7 +28,7 @@ input {
 }
 
 button {
-    &#search {
+    &#search, &#remove {
         width: 250px;
         width: 100%;
         margin: 10px auto;
@@ -45,11 +45,11 @@ button {
         box-shadow: 0 9px #c8c8c8;
     }
 
-    &#search:hover {
+    &#search:hover, &#remove:hover {
         background-color: #a9770f;
     }
 
-    &#search:active {
+    &#search:active, &#remove:active {
         background-color: #a9770f;
         box-shadow: 0 5px #9b9a9a;
         transform: translateY(4px);

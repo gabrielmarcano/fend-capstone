@@ -54,7 +54,7 @@ async function updateUI() {
         results.appendChild(fragment);
 
     } catch(error) {
-        console.log("Error: ", error);
+        console.error("Update UI: ", error);
     }
 }
 

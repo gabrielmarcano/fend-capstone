@@ -5,7 +5,7 @@ function updateDateInput() {
     }
 
     // Date input element
-    let dateInput = getElementById('departure');
+    let dateInput = document.getElementById('departure');
 
     // This moment date
     let now = new Date();
@@ -23,7 +23,7 @@ function updateDateInput() {
     let day = now.getDate();
 
     // Value today
-    dateInput.setAttribute('value', `${pad(year)}-${pad(month)}-${pad(day)}`)
+    // dateInput.setAttribute('value', `${pad(year)}-${pad(month)}-${pad(day)}`)
 
     // Min value today
     dateInput.setAttribute('min', `${pad(year)}-${pad(month)}-${pad(day)}`)

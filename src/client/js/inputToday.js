@@ -22,9 +22,6 @@ function updateDateInput() {
     // Today
     let day = now.getDate();
 
-    // Value today
-    // dateInput.setAttribute('value', `${pad(year)}-${pad(month)}-${pad(day)}`)
-
     // Min value today
     dateInput.setAttribute('min', `${pad(year)}-${pad(month)}-${pad(day)}`)
 

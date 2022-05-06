@@ -9,6 +9,9 @@ function main() {
     const destination = document.getElementById("destination").value;
     const departure = document.getElementById("departure").valueAsDate;
 
+    // Fix bugged day
+    departure.setDate(departure.getDate()+1);
+
     // Check if the text input is not empty
     if (!destination) {
         alert('Enter a location');
@@ -69,7 +72,6 @@ function main() {
                             console.error('Pixabay API: ', reason);
                         })
                         .then(() => {
-                            console.log(allData);
 
                             // Post the data to the server
                             Client.postData('/add', allData)

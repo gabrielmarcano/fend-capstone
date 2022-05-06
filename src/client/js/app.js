@@ -15,6 +15,7 @@ function main() {
 
     console.log(today);
     console.log(departure);
+    console.log(new Date(departure));
 
     // Data
     var allData = {

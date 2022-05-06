@@ -6,6 +6,9 @@ async function updateUI() {
 
     try {
 
+        // Create the date object
+        let departureDate = new Date(date.departure);
+
         // Get the results wrapper element
         let results = document.getElementById('results-box');
 
@@ -23,13 +26,13 @@ async function updateUI() {
         destination.innerText = `Destination: ${data.destination}`;
 
         // Fill the departure data element
-        departure.innerText = `Departure day: ${data.departure}`;
+        departure.innerText = `Departure day: ${departureDate.toDateString()}`;
 
         // Fill the weather data element
         weather.innerText = `Weather: ${data.weather}`;
 
         // Fill the temperature data element
-        if (Client.thisWeek(new Date(data.departure))) {
+        if (Client.thisWeek(departureDate)) {
             temperature.innerText = `Temperature: ${data.temperature}`;
         } else {
             temperature.innerText = `Min Temperature: ${data.temperature.min} \n Max Temperature: ${data.temperature.max}`;

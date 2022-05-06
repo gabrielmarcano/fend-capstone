@@ -7,7 +7,7 @@ async function updateUI() {
     try {
 
         // Create the date object
-        let departureDate = new Date(date.departure);
+        let departureDate = new Date(data.departure);
 
         // Get the results wrapper element
         let results = document.getElementById('results-box');

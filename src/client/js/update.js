@@ -7,7 +7,7 @@ async function updateUI() {
     try {
 
         // Get the results wrapper element
-        let results = document.getElementById('results');
+        let results = document.getElementById('results-box');
 
         // Create a document fragment
         let fragment = document.createDocumentFragment();
@@ -43,6 +43,9 @@ async function updateUI() {
         
         // Append to the document fragment
         fragment.append(destination, departure, weather, temperature, image);
+
+        // First empty the box
+        results.innerHTML = '';
 
         // Append the document fragment to the UI
         results.appendChild(fragment);
